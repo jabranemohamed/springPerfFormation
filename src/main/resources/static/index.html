@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Films</title>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.js"></script>
+<script src=https://www.unpkg.com/mustache@4.1.0/mustache.min.js></script>
+<script id="movieThumbTemplate" type="text/template">
+	{{#.}}<div class="grid-item"><img src="img/{{image}}" />
+	<div class="mask table">
+		<div class="middle">
+			<div class="inner">
+      			<h2>{{name}}</h2>
+      			<p>{{description}}</p>
+      			<div class="info" movie-id="{{id}}">Details</div>
+			</div>
+		</div>
+    </div>
+</div>{{/.}}
+</script>
+<script id="movieTemplate" type="text/template">
+<div id="movie-details" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-header-content">
+					<div class="modal-bg" style="background-image: url('img/{{movie.image}}');"></div>
+				</div>
+				<div class="modal-header-content">
+					<span class="close">&times;</span>
+					<h1 id="modalTitle">{{movie.name}}</h1>
+				</div>
+			</div>
+
+			<div class="modal-body">
+				<div class="synopsis">
+					<div class="modal-title">Synopsis</div>
+					<div class="plot">{{plot}}</div>
+				</div>
+				<ul>
+					<li class="modal-li">
+						<div class="modal-title">Director</div>
+						<div>{{movie.director}}</div>
+					</li>
+					<li class="modal-li">
+						<div class="modal-title">Awards</div>
+						<div class="modal-flex">
+								{{#movie.awards.0.name}}<div class="modal-list-element">{{movie.awards.0.name}}</div>{{/movie.awards.0.name}}
+								{{#movie.awards.1.name}}<div class="modal-list-element">{{movie.awards.1.name}}</div>{{/movie.awards.1.name}}
+								{{#movie.awards.2.name}}<div class="modal-list-element">{{movie.awards.2.name}}</div>{{/movie.awards.2.name}}
+								{{#movie.awards.3.name}}<div class="modal-list-element awards-more">...show more</div>{{/movie.awards.3.name}}
+						</div>
+					</li>
+					<li class="modal-li">
+						<div class="modal-title-genre"><div>Genres</div></div>
+						<div class="modal-flex">
+							{{#movie.genres}}
+								<div class="modal-genre">{{name}}</div>
+							{{/movie.genres}}
+						</div>
+					</li>
+					<li class="modal-li">
+						<div class="modal-title">Rating</div>
+						<div class="modal-rating">
+							<div class="Stars" style="--rating: {{stats.stars}};"></div>
+ 							<div class="note-1">{{stats.rating}}</div>
+							<div class="note-2">/10</div>
+							<div class="note-3">({{stats.reviews}} reviews)</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="modal-footer">
+				<button class="accept">Watch trailer</button>
+			</div>
+		</div>
+	</div>
+</script>
+<script src=js/main.js></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+	<form id="searchForm" action="">
+		<input id="search" type="search" placeholder="Search..." tooltip=""
+			autocomplete="off" autofocus required /> <i class="fa fa-search"></i>
+	</form>
+
+	<div class="grid">
+		<div class="grid-sizer"></div>
+	</div>
+
+	<script>
+		$(window).click(function(e) {
+			if (e.target.id == "movie-details") {
+				$("#movie-details").css("display", "none");
+				$("#movie-details").remove();
+			}
+		});
+
+		jQuery(document).ready(function($) {
+			$(".grid").masonry({
+				itemSelector : '.grid-item',
+				percentPosition : true,
+				columnWidth : '.grid-sizer',
+				initLayout : true,
+			});
+			$.ajax({
+				url : "movie/",
+				type : "GET",
+				success : function(result) {
+					displayMoviesResult(result);
+				}
+			});
+		});
+
+		$(".fa-search").click(function(e) {
+			$("#searchForm").submit();
+		});
+
+		$("#searchForm").submit(function(e) {
+			e.preventDefault();
+			$.ajax({
+				url : "movie/search",
+				data: { text: $('#search').val()},
+				type : "GET",
+				success : function(result) {
+					displayMoviesResult(result);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

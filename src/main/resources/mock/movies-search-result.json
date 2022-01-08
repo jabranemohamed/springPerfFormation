@@ -1,0 +1,16 @@
+[
+	{
+		"id": 1,
+		"name": "American History X",
+		"description": "Une description super cool du film, concise mais en même temps assez stylée pour donner envie",
+		"image": "american-history-x.jpg",
+		"certification": "INTERDIT_MOINS_12"
+	},
+	{
+		"id": 2,
+		"name": "Fight Club",
+		"description": "Une description super cool du film, concise mais en même temps assez stylée pour donner envie",
+		"image": "fight-club.jpg",
+		"certification": "INTERDIT_MOINS_12"
+	}
+]

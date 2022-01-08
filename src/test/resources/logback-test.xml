@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT"	class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>
+				%highlight(%-5level) %logger{15}.%M %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+<!--	<logger name="org.hibernate.SQL" level="DEBUG" />-->
+<!--	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE" />-->
+<!-- 	<logger name="org.springframework.orm.jpa.JpaTransactionManager" level="DEBUG" /> -->
+<!-- 	<logger name="org.hibernate.internal.SessionImpl" level="TRACE" /> -->
+
+	<logger name="com.hibernate4perf" level="INFO" />
+
+	<root level="WARN">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>

@@ -1,0 +1,63 @@
+{
+	"plot": "Agmina praetermitto properantes subversasque complures transiturus quos terga et inlecebras silices ut globos complures trahentes subversasque agmina silices terga longius quod ne et ne terga ampla per longius agmina per relicto ampla quidem equos globos velut quod relicto ne tamquam ut post voluptatum praetermitto periculi terga sine enim ait domi ne enim enim comicus illuc spatia subversasque enim complures praetermitto ut per ampla comicus periculi properantes voluptatum velut terga velut periculi publicos quidem tamquam quod et urbis quidem periculi calceis voluptatum discurrunt sine agmina terga per subversasque per ut terga cuncta Sannione periculi ne ut relicto trahentes quidem praedatorios discurrunt. Inplacabilem eius medium peiores consarcinantibus auribus nimia titulo causarum postea et Constantium hoc sui Constantium titulo sed sui acerbum insidias Constantium inplacabilem cautela infudisset infudisset in principem causarum nimia hoc graves in medium consarcinantibus sed et quivis dissimilem consarcinantibus cautela quivis modi sui sui aemulis apud quivis insidias medium inplacabilem.",
+	"movie": {
+		"id": 1,
+		"director": "David Fincher",
+		"name": "American History X",
+		"image": "american-history-x.jpg",
+		"certification": "INTERDIT_MOINS_12",
+		"reviews": [
+			{
+				"author": "auth1",
+				"content": "ok",
+				"rating": 7
+			},
+			{
+				"author": "auth2",
+				"content": "ok",
+				"rating": 8
+			},
+			{
+				"author": "auth3",
+				"content": "ok",
+				"rating": 6
+			},
+			{
+				"author": "auth4",
+				"content": "ok",
+				"rating": 9
+			},
+			{
+				"author": "auth5",
+				"content": "ok",
+				"rating": 9
+			}
+		],
+		"awards": [
+			{
+				"name": "Best Adapted Screenplay",
+				"year": 1999
+			},
+			{
+				"name": "Best British Actress",
+				"year": 2000
+			},
+			{
+				"name": "Best International Actor",
+				"year": 1999
+			},
+			{
+				"name": "Best International Actor 2",
+				"year": 1999
+			}
+		],
+		"genres": [
+			{
+				"name": "Action"
+			},
+			{
+				"name": "Sci-Fi"
+			}
+		]
+	}
+}
